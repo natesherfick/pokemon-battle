@@ -1,14 +1,16 @@
 
 let UserHP = 100;
-let EnemyHP = 100
+let EnemyHP = 100;
 
 let UserAttack = 10;
 let EnemyAttack = 10;
 
 
 function AttackScratch(){
-EnemyHP-UserAttack
-
+EnemyHP = EnemyHP-UserAttack;
+if(EnemyHP <= UserAttack){
+  EnemyHP = 0
+}
 draw()
 
 if (EnemyHP <= 0){SquirtleFainted()}
@@ -18,7 +20,7 @@ else {EnemyAttackChoice()}
 
 
 function AttackGrowl(){
-UserAttack*1.5
+UserAttack = UserAttack*1.5
 
 EnemyAttackChoice()
 }
@@ -36,7 +38,10 @@ else {EnemyAttackTailWhip()}
 
 
 function EnemyAttackTackle(){
-UserHP-EnemyAttack
+UserHP = UserHP-EnemyAttack
+if(UserHP <= EnemyAttack){
+  UserHP = 0
+}
 
 draw()
 
@@ -46,7 +51,7 @@ if (UserHP <= 0){CharmanderFainted()}
 
 
 function EnemyAttackTailWhip(){
-EnemyAttack*1.5
+EnemyAttack = EnemyAttack*1.5
 }
 
 
@@ -64,5 +69,7 @@ function SquirtleFainted(){
 
 
 function draw(){
-  document.getElementById("enemy-bar")
+document.getElementById("enemy-bar").style.width= `${EnemyHP}%` 
+
+document.getElementById("user-bar").style.width= `${UserHP}%` 
 }
