@@ -14,8 +14,7 @@ if(EnemyHP <= UserAttack){
 }
 hideButtons()
 text.innerHTML = "CHARMANDER used scratch!"
-setTimeout(draw, 2000)
-//draw()
+setTimeout(draw, 1500)
 
 if (EnemyHP <= 0){SquirtleFainted()}
 else {EnemyAttackChoice()}
@@ -47,7 +46,7 @@ if(UserHP <= EnemyAttack){
   UserHP = 0
 }
 
-//draw()
+draw()
 
 if (UserHP <= 0){CharmanderFainted()}
 }
@@ -72,7 +71,10 @@ function SquirtleFainted(){
 
 
 function hideButtons(){
-
+document.getElementById("scratchButton").classList.add("hidden")
+document.getElementById("emptyButtonTop").classList.add("hidden")
+document.getElementById("growlButton").classList.add("hidden")
+document.getElementById("emptyButtonBottom").classList.add("hidden")
 }
 
 
