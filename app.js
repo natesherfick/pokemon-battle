@@ -5,13 +5,17 @@ let EnemyHP = 100;
 let UserAttack = 10;
 let EnemyAttack = 10;
 
+let text = document.getElementById("action-text")
 
 function AttackScratch(){
 EnemyHP = EnemyHP-UserAttack;
 if(EnemyHP <= UserAttack){
   EnemyHP = 0
 }
-draw()
+hideButtons()
+text.innerHTML = "CHARMANDER used scratch!"
+setTimeout(draw, 2000)
+//draw()
 
 if (EnemyHP <= 0){SquirtleFainted()}
 else {EnemyAttackChoice()}
@@ -43,7 +47,7 @@ if(UserHP <= EnemyAttack){
   UserHP = 0
 }
 
-draw()
+//draw()
 
 if (UserHP <= 0){CharmanderFainted()}
 }
@@ -66,6 +70,10 @@ function SquirtleFainted(){
 
 }
 
+
+function hideButtons(){
+
+}
 
 
 function draw(){
